@@ -44,7 +44,7 @@ class CodeIndex() {
           val token = child.getSymbol
           refList.append(RangeLocation(token.getStartIndex, token.getStopIndex))
         case t =>
-          sys.error(s"Skipping unexpected ParseTree type: $t")
+//          sys.error(s"Skipping unexpected ParseTree. text: ${t.getText}")
           ()
       }
     }
