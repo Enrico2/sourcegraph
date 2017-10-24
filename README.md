@@ -8,7 +8,7 @@ Thank you for reviewing this.
 
 I'm submitting this code, out of respect for your 4-hour request. However, I must say that I'm not happy with the end-result.
 The task seemed to me like it was doomed to fail in the given time limit. And I consider this a failure given that, as a developer, this is not a tool I would use.
-It's a beginning of one at most. Obviously, Sacrifices had to be made. :(
+It's a beginning of one at most. Obviously, sacrifices had to be made. :(
 
 ## How to run
 
