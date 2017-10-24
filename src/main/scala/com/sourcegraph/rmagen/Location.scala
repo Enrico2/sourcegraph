@@ -15,6 +15,8 @@ case object NoLocation extends Location {
   override def containedBy(node: ParserRuleContext): Boolean = false
   override val start: Int = -1
   override val end: Int = -1
+
+  override def toString = "NoLocation"
 }
 
 case class RangeLocation(start: Int, end: Int) extends Location

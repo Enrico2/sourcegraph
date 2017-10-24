@@ -14,12 +14,17 @@ class CodeIndex() {
 
   def getDeclaration(idName: String, location: Location): Location = {
     declarations.get(idName).map { declarations =>
-      val ctx = if (declarations.size == 1) {
-        declarations.head.ctx
+      if (declarations.size == 1) {
+        val ctx = declarations.head.ctx
+        RangeLocation(ctx.start.getStartIndex, ctx.stop.getStopIndex)
       } else {
-        declarations.filter { d => location.containedBy(d.ctx) }.head.ctx
+        //This .headOption call will return None if for some reason we never found the declaration for the idName + location.
+        // This will occur for a case where an identifier is not "really" an identifier, like asking for a tool tip on a word in a comment.
+        declarations.filter { d => location.containedBy(d.ctx) }.headOption.map { dec =>
+          val ctx = dec.ctx
+          RangeLocation(ctx.start.getStartIndex, ctx.stop.getStopIndex)
+        }.getOrElse(NoLocation)
       }
-      RangeLocation(ctx.start.getStartIndex, ctx.stop.getStopIndex)
     }.getOrElse(NoLocation)
   }
 

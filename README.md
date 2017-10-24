@@ -32,8 +32,9 @@ The code in `PrintingJavaListener.scala` is not used by the main process, I just
 4. This is by far not trying to be an efficient solution, although indexing does happen once, and as a token stream (i.e. we "pass" over the code once, O(n) in code length) and definitely contains some bugs for edge cases (one such example is code that doesn't parse correctly -- I didn't handle error nodes in the parsing process)
 5. This code would behave terribly if it had to react to changes. I would not use this implementation directly from an editor given how many times an editor changes. Most likely, a "real" implementation would have some kind of incremental index building, along with in-place mutation of an existing index so that any changes to the code would be efficiently updated in the backing index. updating the index would be triggered after a break in typing and would only index "dirty" tree nodes in the AST and bubble up to the parent. 
     Actually, I'd love to just chat about how to go about this in the "real" world. Sounds interesting.
-6. If anything, I learned a lot during those few hours. Specifically how *not to* write code analysis :)
-7. If you'd like me to delete this from github once you're done reviewing, I can do that. Just let me know. (to avoid others finding this implementation)
+6. There are some relevant comments in the code about potential failures.
+7. If anything, I learned a lot during those few hours. Specifically how *not to* write code analysis :)
+8. If you'd like me to delete this from github once you're done reviewing, I can do that. Just let me know. (to avoid others finding this implementation)
 
 ## How to best review this code
 
