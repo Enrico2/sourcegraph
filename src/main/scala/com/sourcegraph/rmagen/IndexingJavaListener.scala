@@ -1,13 +1,18 @@
 package com.sourcegraph.rmagen
 
 import org.antlr.v4.runtime.ParserRuleContext
+import org.antlr.v4.runtime.tree.ErrorNode
 
-class SimpleJavaListener() extends JavaBaseListener {
+class IndexingJavaListener() extends JavaBaseListener {
 
   val index: CodeIndex = new CodeIndex()
 
   private[this] def indexDeclaration(idName: String, typeString: String, ctx: ParserRuleContext): Unit = {
     index.addDeclaration(idName, typeString, ctx)
+  }
+
+  override def visitErrorNode(node: ErrorNode) = {
+    sys.error(s"Visiting an ErrorNode: $node")
   }
 
   override def exitExpression(ctx: JavaParser.ExpressionContext) = {

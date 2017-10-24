@@ -12,18 +12,6 @@ class CodeIndex() {
   private[this] def refs(idName: String) =
     references.getOrElseUpdate(idName, mutable.ListBuffer[Location]())
 
-  private[this] def find(str: String, t: ParseTree): Option[ParseTree] = {
-    if (t.getChildCount == 0) {
-      None
-    } else if (t.getText == str) {
-      Some(t)
-    } else {
-      (0 until t.getChildCount).map(t.getChild(_)).foldLeft[Option[ParseTree]](None) { (rep, child) =>
-        if (rep.nonEmpty) rep else find(str, child)
-      }
-    }
-  }
-
   def getDeclaration(idName: String, location: Location): Location = {
     declarations.get(idName).map { declarations =>
       val ctx = if (declarations.size == 1) {

@@ -10,7 +10,7 @@ class CodeTools(code: String) {
   val p = new JavaParser(stream)
 
   val root = p.compilationUnit()
-  val listener = new SimpleJavaListener()
+  val listener = new IndexingJavaListener()
   ParseTreeWalker.DEFAULT.walk(listener, root)
   val index = listener.index
 
