@@ -50,7 +50,7 @@ object Main extends App {
 
 
   println()
-  println(s"usages of myShow: ${tools.references(myShowLoc)}")
-  println(s"usages of myTruth: ${tools.references(myTruthLoc)}")
+  println(s"usages of myShow: ${tools.references(myShowLoc).mkString("(",", ", ")")}")
+  println(s"usages of myTruth: ${tools.references(myTruthLoc).mkString("(",", ", ")")}")
   println()
 }
