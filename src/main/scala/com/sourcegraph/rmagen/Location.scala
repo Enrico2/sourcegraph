@@ -21,6 +21,7 @@ case object NoLocation extends Location {
 
 case class RangeLocation(start: Int, end: Int) extends Location
 
+// Convenience, can be folded into RangeLocation.
 case class PositionLocation(loc: Int) extends Location {
   val start: Int = loc
   val end: Int = loc

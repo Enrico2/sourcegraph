@@ -15,7 +15,10 @@ class IndexingJavaListener() extends JavaBaseListener {
     sys.error(s"Visiting an ErrorNode: $node")
   }
 
+  // On exit, so that in most cases we will have already indexed the declaration.
   override def exitExpression(ctx: JavaParser.ExpressionContext) = {
+    // Ideally, I'd like a better hook for finding "real" identifiers. Currently it's an optimistic implementation
+    // where any expression that's a valid identifier is considered as such.
     index.maybeAddRef(ctx)
   }
 

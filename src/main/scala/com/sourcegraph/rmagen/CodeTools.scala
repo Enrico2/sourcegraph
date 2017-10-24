@@ -14,7 +14,6 @@ class CodeTools(code: String) {
   ParseTreeWalker.DEFAULT.walk(listener, root)
   val index = listener.index
 
-  // Terribly inefficient
   private[this] def getWordAtLocation(location: Location): String = {
     var done = false
     var start = location.start
@@ -28,7 +27,7 @@ class CodeTools(code: String) {
       if (isValidEnd) end += 1
 
       if (!isValidStart && !isValidEnd) {
-        start += 1
+        start += 1 // start is inclusive, end is exclusive.
         done = true
       }
     }
