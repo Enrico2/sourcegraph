@@ -43,8 +43,7 @@ class CodeIndex() {
         case child: TerminalNode if child.getText == idName =>
           val token = child.getSymbol
           refList.append(RangeLocation(token.getStartIndex, token.getStopIndex))
-        case t =>
-//          sys.error(s"Skipping unexpected ParseTree. text: ${t.getText}")
+        case _ =>
           ()
       }
     }
