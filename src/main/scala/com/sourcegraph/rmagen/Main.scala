@@ -27,6 +27,7 @@ object Main extends App {
       |}
     """.stripMargin
 
+  println()
   println(s"Presenting some code tools examples, edit the source file to play with it.")
   println(s"--------------------------- The Code -------------------------------------")
   println(code)
@@ -39,12 +40,17 @@ object Main extends App {
   val myTruthLoc = PositionLocation(code.lastIndexOf("myTruth") + 4) // arbitrary position in the string
   val myTruthDef = tools.jumpToDef(myTruthLoc)
 
+  println()
   println(s"definition of myShow is in location ${myShowDef.start}-${myShowDef.end}")
   println(s"definition of myTruth is in location ${myTruthDef.start}-${myTruthDef.end}")
 
+  println()
   println(s"tooltip for myShow: ${tools.tooltip(myShowLoc)}")
   println(s"tooltip for myTruth: ${tools.tooltip(myTruthLoc)}")
 
+
+  println()
   println(s"usages of myShow: ${tools.references(myShowLoc)}")
   println(s"usages of myTruth: ${tools.references(myTruthLoc)}")
+  println()
 }

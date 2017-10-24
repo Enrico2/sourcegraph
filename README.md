@@ -4,7 +4,7 @@
 
 Hi,
 
-Thanks for reviewing this.
+Thank you for reviewing this.
 
 I'm submitting this code, out of respect for your 4-hour request. However, I must say that I'm not happy with the end-result.
 The task seemed to me like it was doomed to fail in the given time limit. And I consider this a failure given that, as a developer, this is not a tool I would use.
@@ -14,7 +14,7 @@ It's a beginning of one at most. Obviously, Sacrifices had to be made. :(
 
 1. Install sbt if you don't have it `brew install sbt`
 2. Install scala if you don't have it `brew install scala`
-3. clone the repo
+3. clone the repo locally
 4. run `sbt run` in the root folder.
 
 The sbt compilation phase generates source code from the Java.g4 file under src/main/antlr4/..
